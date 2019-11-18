@@ -18,4 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/home', 'HomeController@storeSales')->name('storeSales');
+Route::post('/addData', 'HomeController@storeSales')->name('storeSales');
+Route::get('/addData', 'HomeController@viewSales')->name('getSales');
+Route::get('/salesData/{id}/edit', 'HomeController@editSales')->name('editSalesData');
+Route::post('/salesData/{id}/edit', 'HomeController@updateSales')->name('updateSales');
+Route::get('/salesData/{id}/', 'HomeController@deleteSales')->name('deleteSales');

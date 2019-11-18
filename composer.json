@@ -10,9 +10,11 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "jzonta/faker-restaurant": "^1.1",
         "koolreport/core": "^4.3",
         "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "pelmered/fake-car": "^1.4"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
