@@ -33,6 +33,9 @@
                     <li class="nav-items">
                         <a href="{{route('getSales')}}" class="nav-link">More Info</a>
                     </li>
+                    <li class="nav-items">
+                        <a href="{{route('csv')}}" class="nav-link">Upload Csv</a>
+                    </li>
                 </ul>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

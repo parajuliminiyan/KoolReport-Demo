@@ -13,7 +13,7 @@
                     <th>Costs</th>
                     <th></th>
                 </tr>
-                @foreach($data as $data)
+                @foreach($datas as $data)
                 <tr>
                         <td>{{$data->Name}}</td>
                         <td>{{$data->Sales}}</td>
@@ -23,6 +23,7 @@
                 </tr>
                 @endforeach
             </table>
+            <span class="float-right">{{$datas->links()}}</span>
         </div>
     </div>
 

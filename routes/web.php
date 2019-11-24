@@ -23,3 +23,5 @@ Route::get('/addData', 'HomeController@viewSales')->name('getSales');
 Route::get('/salesData/{id}/edit', 'HomeController@editSales')->name('editSalesData');
 Route::post('/salesData/{id}/edit', 'HomeController@updateSales')->name('updateSales');
 Route::get('/salesData/{id}/', 'HomeController@deleteSales')->name('deleteSales');
+Route::get('/uploadCsv','HomeController@showCsvScreen')->name('csv');
+Route::post('/uploadCsv','HomeController@parseCsv')->name('parseCsv');

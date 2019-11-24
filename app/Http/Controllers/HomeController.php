@@ -41,10 +41,10 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
-    public function viewSales(Sales $sales)
+    public function viewSales()
     {
-        $data = $sales->all();
-        return view('sales', ['data'=> $data]);
+        $data = Sales::paginate(10);
+        return view('sales', ['datas'=> $data]);
     }
 
     public function editSales($id)
@@ -71,5 +71,29 @@ class HomeController extends Controller
         $sales = Sales::find($id);
         $sales->delete();
         return redirect('addData');
+    }
+
+
+    public function showCsvScreen()
+    {
+        return view('showCsv');
+    }
+
+    public function parseCsv(Request $request)
+    {
+        $file = $request->file('csv_file');
+        if($file->getClientOriginalExtension() !== 'csv'){
+           return redirect()->back()->with('message', '<span class="alert alert-danger">Invalid File Type</span><br><br>');
+        }
+        $fileData = array_map('str_getcsv',file($file->getRealPath()));
+        foreach (array_slice($fileData,1) as $data){
+            $sales = new Sales();
+            $sales->Name = $data[0];
+            $sales->Costs = $data[1];
+            $sales->Profits = $data[2];
+            $sales->sales  = $data[3];
+            $sales->save();
+        }
+        return redirect('/home')->with('message', '<span class="alert alert-success" role="success">Data From File Imported!!</span><br><br>');
     }
 }

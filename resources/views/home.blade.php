@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('message'))
+
+        {!! Session::get('message')  !!}
+
+
+    @endif
    <div class="col-md-12">
        <h2>Report of Restaurant Sales and Profits</h2>
        {{
